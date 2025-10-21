@@ -1,0 +1,23 @@
+{
+  "name": "user-management-system",
+  "version": "1.0.0",
+  "description": "This System  manages uses in the oraganizetion",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yadelew-zemene/User-Management-System.git"
+  },
+  "author": "Yadelew Zemene",
+  "bugs": {
+    "url": "https://github.com/Yadelew-zemene/User-Management-System/issues"
+  },
+  "homepage": "https://github.com/Yadelew-zemene/User-Management-System#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

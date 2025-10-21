@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>User Management System</title>
+    <style>
+       
+    </style>
+    
+</head>
+
+<body>
+    <h1>User Management System</h1>
+    <main>
+        <!-- display user -->
+        <h2 id="h2">Current users</h2>
+        <div class="table">
+        <table border="1">
+
+            <tr class="tablehead">
+                <th>UserId</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>delete</th>
+            </tr>
+            <% data.forEach(user=>{%>
+                <tr class="eachuser">
+
+                    <td>
+                        <%=user.userId%>
+                    </td>
+                    <td>
+                        <%=user.userName%>
+                    </td>
+                    <td>
+                        <%=user.userEmail%>
+                    </td>
+                    <td>
+                        <%=user.age%>
+                    </td>
+                    <td>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="userId" value="<%= user.userId %>">
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+
+                </tr>
+
+                <% })%>
+             </table>
+            </div>
+                    <!-- Add user Form -->
+                    <fieldset>
+                        <form action="/" method="post">
+                            <input type="text" placeholder="User Id" name="userId" required>
+                            <input type="text" placeholder="User Name" name="userName" required>
+                            <input type="text" placeholder="User Email" name="userEmail" required>
+                            <input type="text" placeholder="Age" name="age" required>
+                            <button type="submit" id="submit"> submit</button>
+                        </form>
+                        <!-- Update user form -->
+                        <form action="/update" method="post">
+                            <input type="text" placeholder="User Id" name="userId" required>
+                            <input type="text" placeholder="user Name" name="userName" required>
+                            <input type="email" placeholder="user Email" name="userEmail" required>
+                            <input type="text" placeholder="User Age" name="age" required>
+                            <button type="submit">Update</button>
+
+                        </form>
+
+                    </fieldset>
+
+
+
+    </main>
+
+</body>
+
+</html>

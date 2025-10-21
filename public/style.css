@@ -1,0 +1,23 @@
+ h1{
+    text-align: center;
+    color: blueviolet;
+}
+body main{
+    background-color: aquamarine;
+}
+.table{
+    width: 1400px;;
+}
+button{
+    background-color: rgb(226, 171, 43);
+}
+table{
+    width: 70%;
+    margin: 30px;
+    background-color: beige;
+    height: auto;
+}
+fieldset{
+    background-color: burlywood;
+    margin: 30px;
+}
