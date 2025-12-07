@@ -21,7 +21,7 @@ myServer.get("/", (req, res) => {
     
 })
 // ADD USER
-myServer.post("/", (req, res) => {
+myServer.post("/add", (req, res) => {
     const exists = users.find(u => u.userId === req.body.userId);
     if (exists) {
         return res.render("index", {
