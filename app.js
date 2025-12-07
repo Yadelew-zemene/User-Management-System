@@ -47,11 +47,9 @@ myServer.post("/", (req, res) => {
 
 myServer.post("/delete", (req, res) => {
     const requestedId = req.body.userId;
-   const beforeCount = users.length
-         ? "User not found!"
-            : "User deleted successfully!";;
-
-   users= users.filter(user => req.body.userId != requestedId);
+   
+    const beforeCount = users.length;
+   users= users.filter(user => user.userId !== requestedId);
     const message =
         beforeCount === users.length
             ? "User not found!"
