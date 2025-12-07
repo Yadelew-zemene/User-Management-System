@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const chelk = require("chalk").default;
+;
 
 const myServer = express();
 myServer.use(express.static("public"));
@@ -47,11 +47,15 @@ myServer.post("/", (req, res) => {
 
 myServer.post("/delete", (req, res) => {
     const requestedId = req.body.userId;
-    const message = beforeCount === users.length
+   const beforeCount = users.length
          ? "User not found!"
             : "User deleted successfully!";;
 
-    users.filter(user => req.body.userId != requestedId);
+   users= users.filter(user => req.body.userId != requestedId);
+    const message =
+        beforeCount === users.length
+            ? "User not found!"
+            : "User deleted successfully!";
     res.render("index", { data: users ,message});
 })
 
@@ -88,10 +92,10 @@ myServer.post("/search", (req, res) => {
 const port = 4000;
 myServer.listen(port, (err) => {
     if (err) {
-        console.log(chalk.red("err occured"))
+        console.log("err occured")
 
     }
     else {
-        console.log(chalk.green("Request served"));
+        console.log("Request served");
     }
 })
