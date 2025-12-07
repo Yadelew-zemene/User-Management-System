@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { default: chalk } = require("chalk");
 
 const myServer = express();
 myServer.use(express.static("public"));
@@ -48,10 +49,10 @@ myServer.post("/update", (req, res) => {
 })
 myServer.listen(port, (err) => {
     if (err) {
-        console.log("err occured");
+        console.log(chalk.red("err occured"))
 
     }
     else {
-        console.log("Request served");
+        console.log(chalk.green("Request served"));
     }
 })
