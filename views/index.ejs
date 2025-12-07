@@ -7,24 +7,50 @@
     <link rel="stylesheet" href="./style.css">
     <title>User Management System</title>
     <style>
-       
+            body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        table, th, td { border: 1px solid black; padding: 10px; }
+        .msg { color: green; font-size: 18px; }
+    </style>
     </style>
     
 </head>
 
 <body>
-    <h1>User Management System</h1>
+    <h2>User Management System</h2>
+    <% if (message) { %>
+        <p class="msg">
+            <%= message %>
+        </p>
+        <% } %>
     <main>
         <!-- display user -->
+        h3>Add User</h3>
+        <form action="/add" method="POST">
+            <input name="userId" placeholder="User ID">
+            <input name="userName" placeholder="Name" required>
+            <input name="userEmail" placeholder="Email" required>
+            <input name="age" placeholder="Age" required>
+            <button type="submit">Add</button>
+        </form>
+        <h3>Search</h3>
+        <form action="/search" method="POST">
+            <input name="keyword" placeholder="Search by name/email">
+            <button>Search</button>
+        </form>
+
+
         <h2 id="h2">Current users</h2>
         <div class="table">
         <table border="1">
 
             <tr class="tablehead">
-                <th>UserId</th>
-                <th>User Name</th>
-                <th>User Email</th>
-                <th>delete</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th> Email</th>
+                
+                <th>Age</th>
+                <th>Actions</th>
             </tr>
             <% data.forEach(user=>{%>
                 <tr class="eachuser">
@@ -42,37 +68,26 @@
                         <%=user.age%>
                     </td>
                     <td>
-                        <form action="/delete" method="post">
+                        <form action="/delete" method="post" style="display:inline;">
                             <input type="hidden" name="userId" value="<%= user.userId %>">
                             <button type="submit">delete</button>
                         </form>
+                        <!-- Update user form -->
+                        <form action="/update" method="post" style="display:inline;">
+                            <input type="hidden" name="userId" value="<%= user.userId %>">
+                            <input name="userName" value="<%= user.userName %>">
+                            <input name="userEmail" value="<%= user.userEmail %>">
+                            <input name="age" value="<%= user.age %>">
+                            <button>Update</button>
+
+
                     </td>
 
                 </tr>
 
                 <% })%>
              </table>
-            </div>
-                    <!-- Add user Form -->
-                    <fieldset>
-                        <form action="/" method="post">
-                            <input type="text" placeholder="User Id" name="userId" required>
-                            <input type="text" placeholder="User Name" name="userName" required>
-                            <input type="text" placeholder="User Email" name="userEmail" required>
-                            <input type="text" placeholder="Age" name="age" required>
-                            <button type="submit" id="submit"> submit</button>
-                        </form>
-                        <!-- Update user form -->
-                        <form action="/update" method="post">
-                            <input type="text" placeholder="User Id" name="userId" required>
-                            <input type="text" placeholder="user Name" name="userName" required>
-                            <input type="email" placeholder="user Email" name="userEmail" required>
-                            <input type="text" placeholder="User Age" name="age" required>
-                            <button type="submit">Update</button>
-
-                        </form>
-
-                    </fieldset>
+         
 
 
 
